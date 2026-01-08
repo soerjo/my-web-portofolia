@@ -63,25 +63,15 @@ export default function IndexPage() {
 
   return (
     <ClientPageWrapper>
-      <Script
-        id="schema-person"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-      />
-      <Script
-        id="schema-software"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
-      />
 
-      <section className="space-y-6 pb-8 pt-6 mb-0 md:pb-12 md:py-20 lg:py-32 h-screen flex items-center">
-        <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center -mt-20">
+      <section className="flex items-center">
+        <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
           <Image
             src={profileImg}
             height={100}
             width={100}
             sizes="100vw"
-            className="bg-primary rounded-full mt-12 mb-0 h-auto md:mb-2 w-[60%] max-w-[16rem] border-8 border-primary"
+            className="bg-primary rounded-full mb-0 h-auto md:mb-2 w-[60%] max-w-[16rem] border-8 border-primary"
             alt="Suryo - Portfolio"
             priority
           />
