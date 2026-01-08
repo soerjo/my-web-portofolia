@@ -1,0 +1,17 @@
+services:
+  nextjs-app:
+    build: 
+      context: .
+      args:
+        NODE_ENV: ${NODE_ENV}
+        NEXT_PUBLIC_ANALYTICS_ID: ${NEXT_PUBLIC_ANALYTICS_ID}
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      NEXT_PUBLIC_ANALYTICS_ID: ${NEXT_PUBLIC_ANALYTICS_ID}
+    restart: unless-stopped
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
