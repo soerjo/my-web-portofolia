@@ -32,34 +32,34 @@ export const metadata: Metadata = {
 
 export default function IndexPage() {
   // Structured data for personal portfolio
-  const personSchema = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    name: siteConfig.authorName,
-    url: siteConfig.url,
-    image: siteConfig.ogImage,
-    jobTitle: "Applied AI Engineer",
-    sameAs: [siteConfig.links.github, siteConfig.links.twitter],
-  };
+  // const personSchema = {
+  //   "@context": "https://schema.org",
+  //   "@type": "Person",
+  //   name: siteConfig.authorName,
+  //   url: siteConfig.url,
+  //   image: siteConfig.ogImage,
+  //   jobTitle: "Applied AI Engineer",
+  //   sameAs: [siteConfig.links.github, siteConfig.links.twitter],
+  // };
 
   // Structured data for website as a software application (template)
-  const softwareSchema = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    name: "Next.js Portfolio Template",
-    applicationCategory: "DeveloperApplication",
-    operatingSystem: "Web",
-    offers: {
-      "@type": "Offer",
-      price: "0",
-      priceCurrency: "USD",
-    },
-    author: {
-      "@type": "Person",
-      name: siteConfig.authorName,
-      url: siteConfig.url,
-    },
-  };
+  // const softwareSchema = {
+  //   "@context": "https://schema.org",
+  //   "@type": "SoftwareApplication",
+  //   name: "Next.js Portfolio Template",
+  //   applicationCategory: "DeveloperApplication",
+  //   operatingSystem: "Web",
+  //   offers: {
+  //     "@type": "Offer",
+  //     price: "0",
+  //     priceCurrency: "USD",
+  //   },
+  //   author: {
+  //     "@type": "Person",
+  //     name: siteConfig.authorName,
+  //     url: siteConfig.url,
+  //   },
+  // };
 
   return (
     <ClientPageWrapper>
@@ -87,7 +87,7 @@ export default function IndexPage() {
             delay={0.4}
             className="font-heading text-base sm:text-xl md:text-xl lg:text-2xl"
           >
-            Backend Engineer | TypeScript, C#, Java | NestJs, Express, .Net Core, Java Spring | API Design and System Architecture
+            Backend Engineer | TypeScript, C#, Java | NestJs, Express, .Net, Java Spring | API Design and System Architecture
           </AnimatedText>
           <div className="mt-4 max-w-[42rem] text-center">
             <p className="leading-normal text-muted-foreground text-sm sm:text-base">

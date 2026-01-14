@@ -6,8 +6,8 @@ export const siteConfig = {
     "Suryo Hastomo - Backend Engineer Explore my projects, experience, and contributions in software development and AI.",
   url: "https://nbarkiya.xyz",
   links: {
-    twitter: "https://x.com/namanbarkiya",
-    github: "https://github.com/namanbarkiya",
+    twitter: "https://x.com/suryohastomo",
+    github: "https://github.com/suryohastomo",
     templateRepo: "https://github.com/namanbarkiya/minimal-next-portfolio",
   },
   ogImage:
