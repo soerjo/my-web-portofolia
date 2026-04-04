@@ -4,19 +4,20 @@ This file contains guidelines and commands for agentic coding agents working in 
 
 ## Project Overview
 
-This is a Next.js 16 portfolio using App Router, TypeScript, Tailwind CSS, and shadcn/ui components. The project follows modern React patterns with strict TypeScript configuration.
+Next.js 16 portfolio using App Router, TypeScript, Tailwind CSS, and shadcn/ui components with strict TypeScript configuration.
 
 ## Development Commands
 
 ```bash
-# Core development
-npm run dev          # Start development server (localhost:3000)
+npm run dev          # Start dev server (localhost:3000)
 npm run build        # Build for production
 npm run start        # Start production server
 npm run lint         # Run ESLint
-
-# No testing framework configured - add tests if needed
+npx tsc --noEmit     # Run TypeScript type checking
+npx prettier --write . # Format code
 ```
+
+No testing framework configured - add tests if implementing new features.
 
 ## Code Style Guidelines
 
@@ -32,8 +33,8 @@ import { Icons } from "@/components/common/icons";
 import { cn } from "@/lib/utils";
 ```
 
-- Use absolute imports with `@/` prefix for internal files
-- External imports first, then internal imports
+- Use absolute imports with `@/` prefix
+- External imports first, then internal
 - Named exports preferred over default exports
 
 ### Component Patterns
@@ -42,38 +43,27 @@ import { cn } from "@/lib/utils";
 "use client"; // Add for client components
 
 interface ComponentProps {
-  // Define props with TypeScript interfaces
+  // Props with TypeScript interfaces
 }
 
 export function ComponentName({ prop }: ComponentProps) {
-  // PascalCase for component names
-  // kebab-case for file names
+  // PascalCase for components, kebab-case for files
 }
 ```
 
 - Add `"use client"` directive for client components
 - Use forward refs for UI components
-- Define prop interfaces with `Props` suffix
 - Default exports for main components, named exports for utilities
 
 ### Styling Guidelines
 
 ```typescript
 // Use Tailwind with cn() utility for conditional classes
-className={cn(
-  "base-classes",
-  isActive && "active-classes",
-  variant && "variant-classes"
-)}
+className={cn("base-classes", isActive && "active-classes")}
 
 // Use class-variance-authority for component variants
 const buttonVariants = cva("base-classes", {
-  variants: {
-    variant: {
-      default: "default-classes",
-      destructive: "destructive-classes",
-    },
-  },
+  variants: { variant: { default: "default-classes" } },
 });
 ```
 
@@ -85,18 +75,13 @@ const buttonVariants = cva("base-classes", {
 ### TypeScript Guidelines
 
 ```typescript
-// Strict TypeScript usage
 interface ProjectData {
   title: string;
   description: string;
   technologies: string[];
-  links?: {
-    github?: string;
-    live?: string;
-  };
+  links?: { github?: string; live?: string };
 }
 
-// Use union types for constants
 type ProjectStatus = "completed" | "in-progress" | "planned";
 ```
 
@@ -118,21 +103,18 @@ try {
 
 // Environment variables
 if (!formLink) {
-  return new NextResponse("Please configure the env variables", {
-    status: 500,
-  });
+  return new NextResponse("Configure env variables", { status: 500 });
 }
 
-// Forms and client-side
+// Client-side
 } catch (err) {
   console.log("Err!", err);
-  // Handle user-facing errors
 }
 ```
 
 - Always include try-catch blocks in API routes
 - Validate environment variables before use
-- Log errors appropriately for debugging
+- Log errors for debugging
 
 ### File Structure and Naming
 
@@ -148,7 +130,7 @@ components/
 ├── common/          # Shared components
 ├── ui/             # shadcn/ui components
 ├── forms/          # Form components
-├── projects/       # Project-specific components
+├── projects/       # Project components
 └── experience/     # Experience components
 
 lib/                # Utility functions
@@ -164,8 +146,7 @@ config/             # Configuration and data
 
 ### Environment Variables
 
-Required environment variables (see `.env.copy`):
-
+Required env variables (see `.env.copy`):
 - `GOOGLE_FORM_LINK` - Google Forms URL for contact
 - `GOOGLE_FORM_FIELD_ID_*` - Google Forms field IDs
 - `NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID` - Google Analytics
@@ -173,35 +154,29 @@ Required environment variables (see `.env.copy`):
 
 ## Development Workflow
 
-1. **Before making changes**: Run `npm run lint` to ensure code quality
-2. **Component development**: Use existing shadcn/ui patterns
-3. **Styling**: Follow Tailwind patterns, use design tokens from `tailwind.config.js`
-4. **TypeScript**: Maintain strict typing, no implicit any
-5. **Testing**: No test framework configured - add if implementing tests
+1. Before changes: Run `npm run lint` and `npx tsc --noEmit`
+2. Component development: Use existing shadcn/ui patterns
+3. Styling: Follow Tailwind patterns, use design tokens from `tailwind.config.js`
+4. TypeScript: Maintain strict typing, no implicit any
+5. Formatting: Run `npx prettier --write .` before commits
 
 ## Key Dependencies
 
-- **Next.js 16**: App Router, React 19
-- **TypeScript**: Strict mode enabled
-- **Tailwind CSS**: With custom design tokens
-- **shadcn/ui**: Component library
-- **Framer Motion**: Animations
-- **React Hook Form**: Form handling
-- **Lucide React**: Icons
+- Next.js 16 (App Router, React 19)
+- TypeScript (strict mode enabled)
+- Tailwind CSS (with custom design tokens)
+- shadcn/ui (component library)
+- Framer Motion (animations)
+- React Hook Form (form handling)
+- Lucide React (icons)
+- Zustand (state management)
 
 ## Common Patterns
 
-### Navigation
-
 ```typescript
-<Link href={route} className={cn(active && "active-styles")}>
-  {label}
-</Link>
-```
+// Navigation
+<Link href={route} className={cn(active && "active-styles")}>{label}</Link>
 
-### Data Fetching
-
-```typescript
 // Server components - direct async/await
 async function getData() {
   const data = await fetch(...);
@@ -210,17 +185,16 @@ async function getData() {
 
 // Client components - use hooks
 const [data, setData] = useState(null);
+
+// Modal/Dialog patterns use existing modal provider from providers/modal-provider.tsx
 ```
-
-### Modal/Dialog Patterns
-
-Use existing modal provider patterns from `/providers/modal-provider.tsx`
 
 ## Notes for Agents
 
-- This project uses modern Next.js patterns - avoid legacy pages router
-- No test framework configured - add tests if implementing new features
+- Use modern Next.js patterns - avoid legacy pages router
+- No test framework configured - add tests if implementing features
 - Follow existing component patterns and naming conventions
 - Use shadcn/ui components instead of custom UI when possible
 - Maintain TypeScript strict mode compliance
 - Check existing components for patterns before creating new ones
+- Form validation uses Zod with React Hook Form

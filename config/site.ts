@@ -1,21 +1,18 @@
 export const siteConfig = {
   name: "Suryo Hastomo - Applied AI Engineer",
   authorName: "Suryo Hastomo",
-  username: "namanbarkiya",
+  username: "soerjo",
   description:
     "Suryo Hastomo - Backend Engineer Explore my projects, experience, and contributions in software development and AI.",
-  url: "https://nbarkiya.xyz",
+  url: "https://your-actual-domain.com",
   links: {
     twitter: "https://x.com/suryohastomo",
-    github: "https://github.com/suryohastomo",
+    github: "https://github.com/soerjo",
     templateRepo: "https://github.com/namanbarkiya/minimal-next-portfolio",
   },
-  ogImage:
-    "https://res.cloudinary.com/dvt5vkfwz/image/upload/v1767384721/naman_portfolio_og_image.png",
-  iconIco:
-    "https://res.cloudinary.com/dbfvcn3f6/image/upload/v1692357384/assets/naman-favicon.ico",
-  logoIcon:
-    "https://res.cloudinary.com/dbfvcn3f6/image/upload/v1692357294/assets/naman-logo.png",
+  ogImage: "/profile-img.jpg",
+  iconIco: "/logo.png",
+  logoIcon: "/logo.png",
   keywords: [
     "Suryo Hastomo",
     "Applied AI Engineer",
