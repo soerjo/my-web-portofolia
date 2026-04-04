@@ -8,9 +8,6 @@ RUN npm install
 
 COPY . .
 
-ARG NEXT_PUBLIC_ANALYTICS_ID
-ENV NEXT_PUBLIC_ANALYTICS_ID=$NEXT_PUBLIC_ANALYTICS_ID
-
 RUN npm run build
 
 # Stage 2: production stage
