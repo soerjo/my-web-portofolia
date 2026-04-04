@@ -80,7 +80,7 @@ export default function IndexPage() {
             delay={0.2}
             className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            Suryo Hastomo Ganteng Banget
+            Suryo Hastomo
           </AnimatedText>
           <AnimatedText
             as="h3"
