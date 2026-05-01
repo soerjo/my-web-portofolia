@@ -1,200 +1,65 @@
 # AGENTS.md
 
-This file contains guidelines and commands for agentic coding agents working in this Next.js portfolio repository.
-
-## Project Overview
-
-Next.js 16 portfolio using App Router, TypeScript, Tailwind CSS, and shadcn/ui components with strict TypeScript configuration.
-
-## Development Commands
+## Commands
 
 ```bash
-npm run dev          # Start dev server (localhost:3000)
-npm run build        # Build for production
-npm run start        # Start production server
-npm run lint         # Run ESLint
-npx tsc --noEmit     # Run TypeScript type checking
-npx prettier --write . # Format code
+npm run dev          # Dev server (localhost:3000)
+npm run build        # Production build
+npm run start        # Production server
+npm run lint         # ESLint (flat config, eslint.config.mjs)
+npx tsc --noEmit     # Typecheck (strict mode)
+npx prettier --write . # Format (with import organizing)
 ```
 
-No testing framework configured - add tests if implementing new features.
+No test framework is configured.
 
-## Code Style Guidelines
+**Before committing:** run `npm run lint` then `npx tsc --noEmit`.
 
-### Import Patterns
+## Architecture
 
-```typescript
-// External libraries first
-import { motion } from "framer-motion";
-import Link from "next/link";
+Next.js 16 App Router portfolio. Single app, no monorepo.
 
-// Internal imports with @/ alias
-import { Icons } from "@/components/common/icons";
-import { cn } from "@/lib/utils";
-```
+- `app/(root)/` — all page routes (home, skills, projects, experience, contact, contributions, resume). Shared layout with nav + footer.
+- `app/api/contact/route.ts` — contact form → Google Forms submission (requires env vars)
+- `app/api/github-stars/route.ts` — fetches template repo star count from GitHub API
+- `config/` — **all site data lives here** (site metadata, routes, projects, skills, experience, contributions, socials, pages). Edit these files to customize content.
+- `components/` — grouped by feature (`common/`, `projects/`, `experience/`, `skills/`, `contact/`, `contributions/`, `forms/`, `modals/`)
+- `components/ui/` — shadcn/ui components (config in `components.json`, style "default", base color "zinc")
+- `providers/` — `modal-provider.tsx` (mount-gated modal via zustand store), `animation-provider.tsx` (passthrough)
+- `hooks/` — `use-modal-store.ts` (zustand), `use-lock-body.ts`
+- `lib/utils.ts` — `cn()` utility (clsx + tailwind-merge)
+- `assets/fonts/` — local font (CalSans-SemiBold)
 
-- Use absolute imports with `@/` prefix
-- External imports first, then internal
-- Named exports preferred over default exports
+Dynamic routes: `app/(root)/projects/[projectId]/page.tsx`, `app/(root)/experience/[expId]/page.tsx`
 
-### Component Patterns
+## Stack & Key Details
 
-```typescript
-"use client"; // Add for client components
+- **Next.js 16**, React 19, TypeScript (strict), Tailwind CSS 3, shadcn/ui, Framer Motion, Zustand, React Hook Form + Zod
+- Path alias: `@/*` maps to repo root (`"./*"` in tsconfig)
+- Prettier: no semicolons (`noSemi: true`), double quotes, trailing comma es5, `prettier-plugin-organize-imports`
+- Themes: 7 themes via class-based dark mode (light, dark, retro, cyberpunk, paper, aurora, synthwave) — CSS variables in `globals.css`, safelist in `tailwind.config.js`
+- `next-themes` with `ThemeProvider` wrapping the app in root layout
+- Fonts: Inter (Google) + CalSans-SemiBold (local) via CSS variables `--font-sans` / `--font-heading`
+- Contact form submits to Google Forms via URL query params — requires env vars to be set
+- Deployment: Vercel (or Docker via `Dockerfile` + `docker-compose.yml`)
 
-interface ComponentProps {
-  // Props with TypeScript interfaces
-}
+## Environment Variables
 
-export function ComponentName({ prop }: ComponentProps) {
-  // PascalCase for components, kebab-case for files
-}
-```
+Copy `.env.copy` to `.env` and fill in:
 
-- Add `"use client"` directive for client components
-- Use forward refs for UI components
-- Default exports for main components, named exports for utilities
+- `GOOGLE_FORM_LINK` — Google Forms pre-filled link
+- `GOOGLE_FORM_FIELD_ID_NAME/EMAIL/MESSAGE/SOCIAL` — Google Forms entry field IDs
+- `NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID` — Google Analytics
+- `NEXT_PUBLIC_RESUME_LINK` — resume URL
 
-### Styling Guidelines
+## Conventions
 
-```typescript
-// Use Tailwind with cn() utility for conditional classes
-className={cn("base-classes", isActive && "active-classes")}
-
-// Use class-variance-authority for component variants
-const buttonVariants = cva("base-classes", {
-  variants: { variant: { default: "default-classes" } },
-});
-```
-
-- Use Tailwind CSS for all styling
-- Leverage shadcn/ui components and patterns
-- Use `cn()` utility for conditional classes
-- Implement CVA for component variants
-
-### TypeScript Guidelines
-
-```typescript
-interface ProjectData {
-  title: string;
-  description: string;
-  technologies: string[];
-  links?: { github?: string; live?: string };
-}
-
-type ProjectStatus = "completed" | "in-progress" | "planned";
-```
-
-- All components must have TypeScript interfaces
-- Use union types for constants and enums
-- Leverage path aliases (`@/components/*`, `@/lib/*`)
-- Strict mode enabled - no implicit any
-
-### Error Handling Patterns
-
-```typescript
-// API routes
-try {
-  // API logic
-} catch (error) {
-  console.log(error);
-  return new NextResponse("Internal error", { status: 500 });
-}
-
-// Environment variables
-if (!formLink) {
-  return new NextResponse("Configure env variables", { status: 500 });
-}
-
-// Client-side
-} catch (err) {
-  console.log("Err!", err);
-}
-```
-
-- Always include try-catch blocks in API routes
-- Validate environment variables before use
-- Log errors for debugging
-
-### File Structure and Naming
-
-```
-app/
-├── (root)/           # Route groups with shared layouts
-├── api/             # API routes
-├── globals.css
-├── layout.tsx
-└── page.tsx
-
-components/
-├── common/          # Shared components
-├── ui/             # shadcn/ui components
-├── forms/          # Form components
-├── projects/       # Project components
-└── experience/     # Experience components
-
-lib/                # Utility functions
-hooks/              # Custom React hooks
-providers/          # React context providers
-config/             # Configuration and data
-```
-
-- Use kebab-case for file names (`project-card.tsx`)
-- Use PascalCase for component names (`ProjectCard`)
-- Group components by feature/domain
-- Keep UI components separate in `/components/ui/`
-
-### Environment Variables
-
-Required env variables (see `.env.copy`):
-- `GOOGLE_FORM_LINK` - Google Forms URL for contact
-- `GOOGLE_FORM_FIELD_ID_*` - Google Forms field IDs
-- `NEXT_PUBLIC_GOOGLE_MEASUREMENT_ID` - Google Analytics
-- `NEXT_PUBLIC_RESUME_LINK` - Resume URL
-
-## Development Workflow
-
-1. Before changes: Run `npm run lint` and `npx tsc --noEmit`
-2. Component development: Use existing shadcn/ui patterns
-3. Styling: Follow Tailwind patterns, use design tokens from `tailwind.config.js`
-4. TypeScript: Maintain strict typing, no implicit any
-5. Formatting: Run `npx prettier --write .` before commits
-
-## Key Dependencies
-
-- Next.js 16 (App Router, React 19)
-- TypeScript (strict mode enabled)
-- Tailwind CSS (with custom design tokens)
-- shadcn/ui (component library)
-- Framer Motion (animations)
-- React Hook Form (form handling)
-- Lucide React (icons)
-- Zustand (state management)
-
-## Common Patterns
-
-```typescript
-// Navigation
-<Link href={route} className={cn(active && "active-styles")}>{label}</Link>
-
-// Server components - direct async/await
-async function getData() {
-  const data = await fetch(...);
-  return data.json();
-}
-
-// Client components - use hooks
-const [data, setData] = useState(null);
-
-// Modal/Dialog patterns use existing modal provider from providers/modal-provider.tsx
-```
-
-## Notes for Agents
-
-- Use modern Next.js patterns - avoid legacy pages router
-- No test framework configured - add tests if implementing features
-- Follow existing component patterns and naming conventions
-- Use shadcn/ui components instead of custom UI when possible
-- Maintain TypeScript strict mode compliance
-- Check existing components for patterns before creating new ones
-- Form validation uses Zod with React Hook Form
+- External imports first, then `@/` internal imports (enforced by prettier-plugin-organize-imports)
+- `"use client"` directive on client components
+- kebab-case filenames, PascalCase component names
+- Named exports for most components; default exports for layouts/pages
+- Use `cn()` for conditional Tailwind classes
+- Use shadcn/ui components from `components/ui/` instead of building custom UI
+- Modal/dialog patterns use `useModalStore` (zustand) + `ModalProvider` + `CustomModal`
+- Form validation: Zod schemas with React Hook Form (`@hookform/resolvers`)
+- API routes: always wrap in try-catch, validate env vars before use
