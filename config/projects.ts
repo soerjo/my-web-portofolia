@@ -46,19 +46,19 @@ export const Projects: ProjectInterface[] = [
     ],
     startDate: new Date("2024-09-01"),
     endDate: new Date("2026-05-01"),
-    companyLogoImg: "/projects/siloam/logo.png",
+    companyLogoImg: "https://minio.soerjoprod.fun/test/Gemini_Generated_Image_xibdlcxibdlcxibd.png",
     pagesInfoArr: [
       {
         title: "Hospital Management Dashboard",
         description:
           "Backend services powering hospital operations for 100,000+ users",
-        imgArr: ["/projects/siloam/dashboard.webp"],
+        imgArr: ["https://minio.soerjoprod.fun/test/Gemini_Generated_Image_xibdlcxibdlcxibd.png"],
       },
       {
         title: "Payment Gateway Integration",
         description:
           "Secure payment processing system for hospital transactions",
-        imgArr: ["/projects/siloam/payment.webp"],
+        imgArr: ["https://minio.soerjoprod.fun/test/Gemini_Generated_Image_xibdlcxibdlcxibd.png"],
       },
     ],
     descriptionDetails: {
@@ -92,24 +92,24 @@ export const Projects: ProjectInterface[] = [
     ],
     startDate: new Date("2023-10-01"),
     endDate: new Date("2024-09-01"),
-    companyLogoImg: "/projects/datacakra/logo.png",
+    companyLogoImg: "https://minio.soerjoprod.fun/test/Gemini_Generated_Image_xibdlcxibdlcxibd.png",
     pagesInfoArr: [
       {
         title: "Microservices Architecture",
         description:
           "Scalable backend microservices architecture for naval operations",
-        imgArr: ["/projects/datacakra/architecture.webp"],
+        imgArr: ["https://minio.soerjoprod.fun/test/Gemini_Generated_Image_xibdlcxibdlcxibd.png"],
       },
       {
         title: "IoT Dashboard",
         description:
           "Real-time IoT data visualization using MQTT and Socket.IO",
-        imgArr: ["/projects/datacakra/iot-dashboard.webp"],
+        imgArr: ["https://minio.soerjoprod.fun/test/Gemini_Generated_Image_xibdlcxibdlcxibd.png"],
       },
       {
         title: "GIS Integration",
         description: "Geospatial services integration for BP Batam GIS Web App",
-        imgArr: ["/projects/datacakra/gis.webp"],
+        imgArr: ["https://minio.soerjoprod.fun/test/Gemini_Generated_Image_xibdlcxibdlcxibd.png"],
       },
     ],
     descriptionDetails: {
@@ -137,19 +137,19 @@ export const Projects: ProjectInterface[] = [
     techStack: ["Node.js", "ReactJS", "MySQL", "REST API"],
     startDate: new Date("2022-07-01"),
     endDate: new Date("2023-06-01"),
-    companyLogoImg: "/projects/dewatic/logo.png",
+    companyLogoImg: "https://minio.soerjoprod.fun/test/Gemini_Generated_Image_xibdlcxibdlcxibd.png",
     pagesInfoArr: [
       {
         title: "HRIS Dashboard",
         description:
           "Payroll and attendance management system for 500+ employees",
-        imgArr: ["/projects/dewatic/hris-dashboard.webp"],
+        imgArr: ["https://minio.soerjoprod.fun/test/Gemini_Generated_Image_xibdlcxibdlcxibd.png"],
       },
       {
         title: "Anoa Crypto Wallet",
         description:
           "Crypto wallet backend with blockchain integration and real-time price scraping",
-        imgArr: ["/projects/dewatic/crypto-wallet.webp"],
+        imgArr: ["https://minio.soerjoprod.fun/test/Gemini_Generated_Image_xibdlcxibdlcxibd.png"],
       },
     ],
     descriptionDetails: {
@@ -177,13 +177,13 @@ export const Projects: ProjectInterface[] = [
     techStack: ["Go", "NestJS", "MySQL", "Redis", "REST API"],
     startDate: new Date("2023-06-01"),
     endDate: new Date("2023-11-01"),
-    companyLogoImg: "/projects/budimind/logo.png",
+    companyLogoImg: "https://minio.soerjoprod.fun/test/Gemini_Generated_Image_xibdlcxibdlcxibd.png",
     pagesInfoArr: [
       {
         title: "API Architecture",
         description:
           "Backend services built with NestJS and Go for digital agency projects",
-        imgArr: ["/projects/budimind/api.webp"],
+        imgArr: ["https://minio.soerjoprod.fun/test/Gemini_Generated_Image_xibdlcxibdlcxibd.png"],
       },
     ],
     descriptionDetails: {

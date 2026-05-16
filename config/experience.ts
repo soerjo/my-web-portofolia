@@ -47,7 +47,7 @@ export const experiences: ExperienceInterface[] = [
       "Git",
     ],
     companyUrl: "https://www.siloamhospitals.com",
-    logo: "/experience/siloam-logo.png",
+    logo: "https://minio.soerjoprod.fun/test/Gemini_Generated_Image_xibdlcxibdlcxibd.png",
   },
   {
     id: "datacakra",
@@ -79,7 +79,7 @@ export const experiences: ExperienceInterface[] = [
       "Git",
     ],
     companyUrl: "https://datacakra.com",
-    logo: "/experience/datacakra-logo.png",
+    logo: "https://minio.soerjoprod.fun/test/Gemini_Generated_Image_xibdlcxibdlcxibd.png",
   },
   {
     id: "budimind",
@@ -99,7 +99,7 @@ export const experiences: ExperienceInterface[] = [
     ],
     skills: ["Go", "NestJS", "MySQL", "Redis", "REST API", "Git"],
     companyUrl: "https://budimind.com",
-    logo: "/experience/budimind-logo.png",
+    logo: "https://minio.soerjoprod.fun/test/Gemini_Generated_Image_xibdlcxibdlcxibd.png",
   },
   {
     id: "dewatic",
@@ -122,6 +122,6 @@ export const experiences: ExperienceInterface[] = [
     ],
     skills: ["Node.js", "ReactJS", "MySQL", "REST API", "Git"],
     companyUrl: "https://dewatic.com",
-    logo: "/experience/dewatic-logo.png",
+    logo: "https://minio.soerjoprod.fun/test/Gemini_Generated_Image_xibdlcxibdlcxibd.png",
   },
 ];
