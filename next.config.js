@@ -5,8 +5,7 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'minio.soerjoprod.fun',
-        port: '',
-        pathname: '/test/**',
+        pathname: '/**',
       },
     ],
   },
