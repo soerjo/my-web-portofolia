@@ -20,7 +20,7 @@ export default function ContactPage() {
         <p className="text-sm text-muted-foreground">
           Prefer a quick overview?{" "}
           <a
-            href="/resume.pdf"
+            href="/cv-suryo-hastomo-2026.pdf"
             download="CV Suryo Hastomo 2026.pdf"
             className="text-primary underline underline-offset-4"
           >
