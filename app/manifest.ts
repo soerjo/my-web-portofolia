@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Suryo Hastomo | Applied AI Engineer",
+    name: "Suryo Hastomo | Backend Engineer",
     short_name: "Suryo Hastomo",
     description:
       "Suryo Hastomo - Backend Engineer",
@@ -25,9 +25,7 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
     categories: [
       "portfolio",
-      "ai",
       "software engineering",
-      "machine learning",
       "developer",
       "web development",
     ],

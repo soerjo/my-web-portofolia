@@ -1,4 +1,3 @@
-import { GitHubStarBadge } from "@/components/common/github-star-badge";
 import { MainNav } from "@/components/common/main-nav";
 import { ModeToggle } from "@/components/common/mode-toggle";
 import { SiteFooter } from "@/components/common/site-footer";
