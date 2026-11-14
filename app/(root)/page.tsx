@@ -63,10 +63,12 @@ Backend Engineer specializing in TypeScript (NestJS), .NET and Java, with experi
           <div className="flex flex-col mt-10 items-center justify-center sm:flex-row sm:space-x-4 gap-3">
             <AnimatedText delay={0.6}>
               <Link
-                href={"/resume"}
+                href={"/resume.pdf"}
                 target="_blank"
+                rel="noreferrer"
+                download="CV Suryo Hastomo 2026.pdf"
                 className={cn(buttonVariants({ size: "lg" }))}
-                aria-label="View resume"
+                aria-label="Download resume"
               >
                 <Icons.post className="w-4 h-4 mr-2" /> Resume
               </Link>

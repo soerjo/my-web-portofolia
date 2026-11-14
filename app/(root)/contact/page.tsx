@@ -15,8 +15,19 @@ export default function ContactPage() {
       title={pagesConfig.contact.title}
       description={pagesConfig.contact.description}
     >
-      <div className="mx-auto max-w-2xl">
+      <div className="mx-auto max-w-2xl space-y-6">
         <ContactForm />
+        <p className="text-sm text-muted-foreground">
+          Prefer a quick overview?{" "}
+          <a
+            href="/resume.pdf"
+            download="CV Suryo Hastomo 2026.pdf"
+            className="text-primary underline underline-offset-4"
+          >
+            Download my resume (PDF)
+          </a>
+          .
+        </p>
       </div>
     </PageContainer>
   );
